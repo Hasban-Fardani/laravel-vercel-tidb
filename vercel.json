@@ -4,14 +4,20 @@
     "functions": {
         "api/index.php": { "runtime": "vercel-php@0.7.1" }
     },
-    "routes": [{
-        "src": "/(.*)",
-        "dest": "/api/index.php"
-    }],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/api/index.php"
+        },
+        {
+            "src": "/build/(.*)",
+            "dest": "/public/build/$1"
+        }
+    ],
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "true",
-        "APP_URL": "https://yourprojectdomain.com",
+        "APP_URL": "https://laravel-vercel-tidb.vercel.app/",
 
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
